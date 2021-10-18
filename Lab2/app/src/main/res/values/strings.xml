@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lab2</string>
+    <string name="read_me">Read Me</string>
+    <string name="press_me">Press Me</string>
 </resources>
