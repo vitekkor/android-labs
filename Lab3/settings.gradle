@@ -10,3 +10,4 @@ rootProject.name = "Lab3"
 include ':app'
 include ':task2'
 include ':task3'
+include ':task4'
