@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.newTask.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
             startActivity(intent)
         }
