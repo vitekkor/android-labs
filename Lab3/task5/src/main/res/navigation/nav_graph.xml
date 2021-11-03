@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/Activity1">
+
+    <action
+        android:id="@+id/action_Activity_to_ActivityAbout"
+        app:destination="@id/ActivityAbout" />
+
+    <fragment
+        android:id="@+id/Activity1"
+        android:name="com.vitekkor.task5.Activity1"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/activity1">
+        <action
+            android:id="@+id/action_Activity1_to_Activity2"
+            app:destination="@id/Activity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/Activity2"
+        android:name="com.vitekkor.task5.Activity2"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/activity_2">
+        <action
+            android:id="@+id/action_Activity2_to_Activity3"
+            app:destination="@id/Activity3" />
+        <action
+            android:id="@+id/action_Activity2_to_Activity1"
+            app:destination="@id/Activity1" />
+    </fragment>
+    <fragment
+        android:id="@+id/Activity3"
+        android:name="com.vitekkor.task5.Activity3"
+        android:label="@string/third_fragment_label"
+        tools:layout="@layout/activity_3">
+        <action
+            android:id="@+id/action_Activity3_to_Activity2"
+            app:destination="@id/Activity2" />
+        <action
+            android:id="@+id/action_Activity3_to_Activity1"
+            app:destination="@id/Activity1" />
+    </fragment>
+    <fragment
+        android:id="@+id/ActivityAbout"
+        android:name="com.vitekkor.task5.ActivityAbout"
+        android:label="@string/about_fragment_label"
+        tools:layout="@layout/activity_about" />
+</navigation>
