@@ -28,7 +28,9 @@
             app:destination="@id/Activity3" />
         <action
             android:id="@+id/action_Activity2_to_Activity1"
-            app:destination="@id/Activity1" />
+            app:destination="@id/Activity1"
+            app:popUpTo="@id/Activity1"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/Activity3"
@@ -37,10 +39,14 @@
         tools:layout="@layout/activity_3">
         <action
             android:id="@+id/action_Activity3_to_Activity2"
-            app:destination="@id/Activity2" />
+            app:destination="@id/Activity2"
+            app:popUpTo="@id/Activity2"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_Activity3_to_Activity1"
-            app:destination="@id/Activity1" />
+            app:destination="@id/Activity1"
+            app:popUpTo="@id/Activity1"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/ActivityAbout"
