@@ -13,15 +13,21 @@ class Activity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            val binding = Activity2Binding.inflate(layoutInflater)
-            binding.toFirst.setOnClickListener {
-                finish()
-            }
-            binding.toThird.setOnClickListener {
-                val intent = Intent(this, Activity3::class.java)
-                startActivityForResult(intent, 0)
-            }
-            setContentView(binding.root)
+        val binding = Activity2Binding.inflate(layoutInflater)
+        binding.bnToFirst.setOnClickListener {
+            finish()
+        }
+        binding.bnToThird.setOnClickListener {
+            val intent = Intent(this, Activity3::class.java)
+            startActivityForResult(intent, 0)
+        }
+        setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
