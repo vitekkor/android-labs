@@ -11,5 +11,11 @@ class ActivityAbout : AppCompatActivity() {
         val binding = ActivityAboutBinding.inflate(layoutInflater)
         binding.text.movementMethod = ScrollingMovementMethod()
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

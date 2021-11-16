@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Activity1">
+    tools:context=".Activity1"
+    android:id="@+id/fragment1">
 
     <Button
-        android:id="@+id/to_second"
+        android:id="@+id/bnToSecond"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="@string/to_second"

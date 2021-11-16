@@ -4,27 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Activity2">
+    tools:context=".Activity2"
+    android:id="@+id/fragment2">
 
     <Button
-        android:id="@+id/to_first"
+        android:id="@+id/bnToFirst"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="@string/to_first"
-        app:layout_constraintBottom_toTopOf="@id/to_third"
+        app:layout_constraintBottom_toTopOf="@id/bnToThird"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/to_third"
+        android:id="@+id/bnToThird"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="@string/to_third"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/to_first" />
+        app:layout_constraintTop_toBottomOf="@id/bnToFirst" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
