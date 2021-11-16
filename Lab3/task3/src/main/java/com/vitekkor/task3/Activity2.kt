@@ -14,14 +14,20 @@ class Activity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = Activity2Binding.inflate(layoutInflater)
-        binding.toFirst.setOnClickListener {
+        binding.bnToFirst.setOnClickListener {
             finish()
         }
-        binding.toThird.setOnClickListener {
+        binding.bnToThird.setOnClickListener {
             val intent = Intent(this, Activity3::class.java)
             startActivity(intent)
         }
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

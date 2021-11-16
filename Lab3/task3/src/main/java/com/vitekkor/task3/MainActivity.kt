@@ -12,11 +12,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.toSecond.setOnClickListener {
+        binding.bnToSecond.setOnClickListener {
             val intent = Intent(this, Activity2::class.java)
             startActivity(intent)
         }
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
