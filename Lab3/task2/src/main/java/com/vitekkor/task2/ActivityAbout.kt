@@ -5,7 +5,7 @@ import android.text.method.ScrollingMovementMethod
 import androidx.appcompat.app.AppCompatActivity
 import com.vitekkor.task2.databinding.ActivityAboutBinding
 
-class ActivityAbout : AppCompatActivity() {
+class ActivityAbout : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityAboutBinding.inflate(layoutInflater)
