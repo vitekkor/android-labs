@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Continue Watch</string>
+    <string name="secondsElapsed">Seconds elapsed: %d</string>
+    <string name="count_with_executorservice">Count with ExecutorService</string>
+    <string name="count_with_">Count with %s</string>
+    <string name="count_with_threads">Count with Threads</string>
+    <string name="count_with_coroutines">Count with Coroutines</string>
+</resources>
