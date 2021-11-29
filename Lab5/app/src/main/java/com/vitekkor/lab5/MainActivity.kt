@@ -15,11 +15,11 @@ import java.util.concurrent.Future
 
 class MainActivity : AppCompatActivity() {
 
-    private val executorService: ExecutorService = Executors.newFixedThreadPool(4)
+    private val executorService: ExecutorService = Executors.newSingleThreadExecutor()
     private lateinit var task: Future<*>
 
-    private lateinit var job: Job
     private val scope = CoroutineScope(Dispatchers.Default)
+    private val job = scope.launch(start = CoroutineStart.LAZY) { countInCoroutine() }
 
     private lateinit var backgroundThread: Thread
 
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 1 -> Unit
                 else -> return@setOnClickListener
             }
-            job = scope.launch { countInCoroutine() }
+            job.start()
             mode = 2
             binding.textCountWith.text = getString(R.string.count_with_, "Coroutines")
         }
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
                 backgroundThread.start()
             }
             1 -> task = executorService.submit { count() }
-            else -> job = scope.launch { countInCoroutine() }
+            else -> job.start()
         }
         super.onStart()
     }

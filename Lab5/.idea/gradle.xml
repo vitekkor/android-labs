@@ -11,6 +11,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/task2" />
+            <option value="$PROJECT_DIR$/task3" />
+            <option value="$PROJECT_DIR$/task4" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
