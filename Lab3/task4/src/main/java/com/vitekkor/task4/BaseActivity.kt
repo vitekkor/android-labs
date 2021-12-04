@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity: AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (this is ActivityAbout) return false
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
         return true

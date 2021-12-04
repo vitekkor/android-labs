@@ -2,6 +2,7 @@ package com.vitekkor.task3
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.vitekkor.task3.databinding.ActivityAboutBinding
 
@@ -12,5 +13,9 @@ class ActivityAbout : BaseActivity() {
         binding.text.movementMethod = ScrollingMovementMethod()
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        return false
     }
 }
