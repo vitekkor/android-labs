@@ -10,12 +10,11 @@ import com.vitekkor.lab5.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 import java.lang.Thread.sleep
 import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class MainActivity : AppCompatActivity() {
 
-    private val executorService: ExecutorService = Executors.newSingleThreadExecutor()
+    private lateinit var executorService: ExecutorService
     private lateinit var task: Future<*>
 
     private val scope = CoroutineScope(Dispatchers.Default)
@@ -68,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        executorService = (application as MyApplication).executorService
         val binding = ActivityMainBinding.inflate(layoutInflater)
         binding.withExecutorService.setOnClickListener {
             when (mode) {
