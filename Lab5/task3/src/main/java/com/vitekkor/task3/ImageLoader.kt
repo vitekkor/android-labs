@@ -9,7 +9,9 @@ import androidx.lifecycle.viewModelScope
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
 import io.ktor.client.request.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.InputStream
 
 
@@ -20,8 +22,12 @@ class ImageLoader : ViewModel() {
     fun getBitmap(): LiveData<Bitmap> = bitmap
 
     fun loadImage() {
-        viewModelScope.launch {
-            bitmap.postValue(BitmapFactory.decodeStream(client.get<InputStream>("https://cataas.com/cat/says/android-lectures?width=50?height=50")))
+        viewModelScope.launch(Dispatchers.IO) {
+            val image =
+                BitmapFactory.decodeStream(client.get<InputStream>("https://cataas.com/cat/says/android-lectures?width=50?height=50"))
+            withContext(Dispatchers.Main) {
+                bitmap.value = image
+            }
         }
     }
 }
