@@ -18,7 +18,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var task: Future<*>
 
     private val scope = CoroutineScope(Dispatchers.Default)
-    private val job = scope.launch(start = CoroutineStart.LAZY) { countInCoroutine() }
+    private val job = scope.launch(start = CoroutineStart.LAZY) {
+        while (true) {
+            delay(10)
+            Log.d("BKGND", "Running. Mode $mode")
+            withContext(Dispatchers.Main) {
+                textSecondsElapsed.text = getString(R.string.secondsElapsed, getElapsedSeconds())
+            }
+        }
+    }
 
     private lateinit var backgroundThread: Thread
 
@@ -38,17 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun getElapsedSeconds(): Long =
         secondsElapsed + (System.currentTimeMillis() - startTime) / 1000
-
-    private suspend fun countInCoroutine() {
-        while (true) {
-            delay(10)
-            Log.d("BKGND", "Running. Mode $mode")
-            textSecondsElapsed.post {
-                textSecondsElapsed.text =
-                    getString(R.string.secondsElapsed, getElapsedSeconds())
-            }
-        }
-    }
 
     private fun count() {
         try {

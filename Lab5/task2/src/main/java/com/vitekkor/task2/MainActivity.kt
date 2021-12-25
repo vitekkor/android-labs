@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.vitekkor.task2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: ImageLoader by viewModels()
+    private val viewModel: ImageLoader by viewModels { MyViewModelFactory(application as MyApp) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
